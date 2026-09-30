@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
+:root {
+	color-scheme: light;
+	font-family: 'Inter', sans-serif;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+
+	--bg: #f4f6fb;
+	--bg-alt: #e9edf5;
+	--card: #ffffff;
+	--border: #dfe4ee;
+	--text: #0b1220;
+	--muted: #5b667a;
+	--accent: #f26a00;
+	--accent-soft: #fdebdc;
+	--teal: #0e8aa6;
+	--green: #0f9d6b;
+	--purple: #6d5df6;
+	--red: #dc3545;
+	--shadow: 0 12px 32px rgba(39, 57, 84, .08);
+}
+
+
+[data-theme='dark'] {
+	color-scheme: dark;
+	--bg: #070c14;
+	--bg-alt: #0b111b;
+	--card: #0e1520;
+	--border: #1b2536;
+	--text: #f2f5fa;
+	--muted: #8a95a8;
+	--accent: #ff7a1a;
+	--accent-soft: #2a1a0d;
+	--teal: #3fd0e8;
+	--green: #34d399;
+	--purple: #6d5df6;
+	--red: #ff6b6b;
+	--shadow: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	background: var(--bg);
+	color: var(--text);
+	transition: background-color .35s ease, color .35s ease;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	min-height: 100vh;
+	background: var(--bg);
+	color: var(--text);
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	line-height: 1.5;
+	transition: background-color .35s ease, color .35s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	color: var(--text);
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-weight: 800;
+	letter-spacing: -.02em;
+	line-height: 1.1;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+h2 {
+	font-size: 32px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+h4 {
+	font-size: 20px;
+}
+
+h5 {
+	font-size: 17px;
+}
+
+h6 {
+	font-size: 15px;
+}
+
+p {
+	color: var(--muted);
+}
+
+code,
+.eyebrow,
+.label,
+th,
+small {
+	font-family: 'JetBrains Mono', monospace;
+}
+
+.eyebrow,
+.label,
+th {
+	color: var(--accent);
+	font-size: 10px;
+	font-weight: 500;
+	letter-spacing: .14em;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+button,
+select,
+input,
+textarea {
+	font: inherit;
+}
