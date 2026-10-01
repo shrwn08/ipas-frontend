@@ -1,68 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap");
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+/* ---------------------------------------------------------
+   Brand colors (from the logo)
+   Navy #1d2d45  |  Red #a4151d
+   --------------------------------------------------------- */
 
 :root {
-	color-scheme: light;
-	font-family: 'Inter', sans-serif;
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
+  color-scheme: light;
+  font-family: "Inter", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
 
-	--bg: #f4f6fb;
-	--bg-alt: #e9edf5;
-	--card: #ffffff;
-	--border: #dfe4ee;
-	--text: #0b1220;
-	--muted: #5b667a;
-	--accent: #f26a00;
-	--accent-soft: #fdebdc;
-	--teal: #0e8aa6;
-	--green: #0f9d6b;
-	--purple: #6d5df6;
-	--red: #dc3545;
-	--shadow: 0 12px 32px rgba(39, 57, 84, .08);
+  /* brand */
+  --brand-navy: #1d2d45;
+  --brand-red: #a4151d;
+
+  /* surfaces */
+  --bg: #f4f6fb;
+  --bg-alt: #e9edf5;
+  --card: #ffffff;
+  --border: #dfe4ee;
+
+  /* text */
+  --text: #1d2d45;
+  --muted: #55637a;
+
+  /* accent: --accent is for fills (buttons, badges),
+	   --accent-text is for small text/lines on the page background */
+  --accent: #a4151d;
+  --accent-hover: #8a1018;
+  --accent-text: #a4151d;
+  --accent-soft: #fbe9ea;
+  --on-accent: #ffffff;
+
+  /* supporting colors */
+  --teal: #0e8aa6;
+  --green: #0f9d6b;
+  --purple: #6d5df6;
+  --red: #dc3545; /* error / danger state */
+
+  --shadow: 0 12px 32px rgba(29, 45, 69, 0.1);
 }
 
+[data-theme="dark"] {
+  color-scheme: dark;
 
-[data-theme='dark'] {
-	color-scheme: dark;
-	--bg: #070c14;
-	--bg-alt: #0b111b;
-	--card: #0e1520;
-	--border: #1b2536;
-	--text: #f2f5fa;
-	--muted: #8a95a8;
-	--accent: #ff7a1a;
-	--accent-soft: #2a1a0d;
-	--teal: #3fd0e8;
-	--green: #34d399;
-	--purple: #6d5df6;
-	--red: #ff6b6b;
-	--shadow: none;
+  --bg: #0c1424;
+  --bg-alt: #111c30;
+  --card: #1d2d45; /* brand navy */
+  --border: #2f4463;
+
+  --text: #eef2f7;
+  --muted: #9fb0c7;
+
+  --accent: #a4151d; /* brand red for fills */
+  --accent-hover: #bd1b24;
+  --accent-text: #ef6d74; /* lighter red so small text is readable on navy */
+  --accent-soft: #3a1b27;
+  --on-accent: #ffffff;
+
+  --teal: #3fd0e8;
+  --green: #34d399;
+  --purple: #8b7dff;
+  --red: #ff6b6b;
+
+  --shadow: none;
 }
 
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-	background: var(--bg);
-	color: var(--text);
-	transition: background-color .35s ease, color .35s ease;
+  background: var(--bg);
+  color: var(--text);
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
 }
 
 body {
-	margin: 0;
-	min-width: 320px;
-	min-height: 100vh;
-	background: var(--bg);
-	color: var(--text);
-	font-family: 'Inter', sans-serif;
-	font-weight: 400;
-	line-height: 1.5;
-	transition: background-color .35s ease, color .35s ease;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
 }
 
 h1,
@@ -71,40 +102,40 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0;
-	color: var(--text);
-	font-family: 'Plus Jakarta Sans', sans-serif;
-	font-weight: 800;
-	letter-spacing: -.02em;
-	line-height: 1.1;
+  margin: 0;
+  color: var(--text);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 h1 {
-	font-size: 40px;
+  font-size: 40px;
 }
 
 h2 {
-	font-size: 32px;
+  font-size: 32px;
 }
 
 h3 {
-	font-size: 24px;
+  font-size: 24px;
 }
 
 h4 {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 h5 {
-	font-size: 17px;
+  font-size: 17px;
 }
 
 h6 {
-	font-size: 15px;
+  font-size: 15px;
 }
 
 p {
-	color: var(--muted);
+  color: var(--muted);
 }
 
 code,
@@ -112,23 +143,84 @@ code,
 .label,
 th,
 small {
-	font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
 }
 
 .eyebrow,
 .label,
 th {
-	color: var(--accent);
-	font-size: 10px;
-	font-weight: 500;
-	letter-spacing: .14em;
-	line-height: 1.4;
-	text-transform: uppercase;
+  color: var(--accent-text);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+button {
+  cursor: pointer;
 }
 
 button,
 select,
 input,
 textarea {
-	font: inherit;
+  font: inherit;
+}
+
+a {
+  color: var(--accent-text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 2px;
+}
+
+/* Primary button: brand red fill, white text */
+.btn-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.company {
+  font-family: "Times New Roman", Times, serif;
+  color: var(--text); /* was black, which disappeared in dark mode */
+}
+
+@layer components {
+	
+	.navlinks {
+		position: relative;
+		width: fit-content;
+		padding-bottom: 4px;
+		cursor: pointer;
+	}
+
+	.navlinks::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 2px;
+		background: var(--accent-text);
+		transform: scaleX(0);
+		transform-origin: right;
+		transition: transform .3s ease;
+	}
+
+	.navlinks:hover::after {
+		transform: scaleX(1);
+		transform-origin: left;
+	}
 }
