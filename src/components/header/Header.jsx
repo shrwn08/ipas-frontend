@@ -7,140 +7,135 @@ import { MdDarkMode } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../redux/features/themes/theme";
 
+const navItems = [
+  "Home",
+  "About us",
+  "Solutions & Software",
+  "Products & Panels",
+  "Industries",
+  "Achievements",
+  "Contact us",
+];
+
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dispatch = useDispatch();
 
-    const theme = useSelector((state) => state.theme.theme);
+  const theme = useSelector((state) => state.theme.theme);
 
-    useEffect(() => {
-        document.documentElement.setAttribute("data-theme", theme);
-        try {
-            localStorage.setItem("theme", theme);
-        } catch (error) {
-            console.error("Error saving theme to localStorage:", error);
-        }
-    }, [theme]);
-
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch (error) {
+      console.error("Error saving theme to localStorage:", error);
+    }
+  }, [theme]);
 
   const handleToggleTheme = () => {
     dispatch(toggleTheme());
-  }
+  };
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
+
+  const logoClass = `h-full w-auto shrink-0 object-contain ${
+    theme === "dark" ? "bg-white" : ""
+  }`;
+
   return (
-    <div className="h-16 w-full flex justify-center items-center border-b-2 border-b-(--border)">
-      {/* Mobile view */}
-      <div className=" h-full w-12/13 flex justify-between items-center lg:hidden ">
-        <div className="h-14 w-auto flex justify-start items-center gap-2">
-          <img src={logo} alt="IPAS Logo" className="h-full" />
-          <div className="font-[Serif] font-semibold text-black">
+    // CHANGED: full nav now starts at 1100px with tighter sizing
+    <header className="relative h-16 w-full flex justify-center items-center border-b-2 border-b-(--border)">
+      <div className="h-full w-full px-2 flex justify-between items-center min-[1100px]:hidden">
+        <div className="h-14 min-w-0 flex justify-start items-center gap-2">
+          <img src={logo} alt="IPAS Logo" className={logoClass} />
+          <div className="font-semibold leading-tight text-xs sm:text-base">
             <p className="company font-semibold">Industrial Power &</p>
             <p className="company font-semibold">Automation System</p>
           </div>
         </div>
 
-        <div className="h-auto w-16 flex justify-center items-center">
-          {isMenuOpen ? (
-            <button type="button" onClick={toggleMenu}>
-              <RxCross2 className="h-10 w-10" />
-            </button>
-          ) : (
-            <button type="button" onClick={toggleMenu}>
-              <IoMenu className="h-10 w-10" />
-            </button>
-          )}
-        </div>
-
-        <div
-          className={
-            isMenuOpen
-              ? "h-auto w-48  flex justify-center items-start border-2 px-2 py-3 border-(--border) rounded-md flex-col gap-2 absolute top-16 right-0 bg-white z-10 transition-transform duration-300 ease-in-out transform origin-top-right"
-              : "hidden"
-          }
+        <button
+          type="button"
+          onClick={toggleMenu}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+          className="shrink-0 p-1 text-(--text)"
         >
-          <div className=" w-full border-b-2 border-border">
-            <p>Home</p>
-          </div>
-          <div className=" w-full border-b-2 border-border">
-            <p>About us</p>
-          </div>
-          <div className=" w-full border-b-2 border-border">
-            <p>Solutions & Software</p>
-          </div>
-          <div className=" w-full border-b-2 border-border">
-            <p>Products & Panels</p>
-          </div>
-          <div className=" w-full border-b-2 border-border">
-            <p>Industries</p>
-          </div>
-          <div className=" w-full border-b-2 border-border">
-            <p>Contact us</p>
-          </div>
-          <div className=" w-full border-b-2 border-border">
-            <p>Dark Mode Light Mode</p>
-          </div>
-          <div className=" w-full h-full bg-accent text-white flex justify-center items-center rounded-md">
+          {isMenuOpen ? (
+            <RxCross2 className="h-8 w-8" />
+          ) : (
+            <IoMenu className="h-8 w-8" />
+          )}
+        </button>
+      </div>
+
+      {isMenuOpen && (
+        <div className="min-[1100px]:hidden absolute top-full right-0 z-50 w-full sm:w-72 max-h-[calc(100vh-4rem)] overflow-y-auto flex flex-col items-start gap-2 px-3 py-3 border-2 border-(--border) rounded-md bg-(--card)">
+          {navItems.map((item) => (
+            <div key={item} className="w-full border-b border-(--border) pb-1">
+              <p className="text-(--text)">{item}</p>
+            </div>
+          ))}
+          <button
+            type="button"
+            onClick={handleToggleTheme}
+            className="w-full border-b border-(--border) pb-1 flex items-center gap-2 text-left text-(--text)"
+          >
+            {theme === "light" ? (
+              <MdDarkMode className="h-5 w-5" />
+            ) : (
+              <CiLight className="h-5 w-5 text-orange-400" />
+            )}
+            <span>{theme === "light" ? "Dark Mode" : "Light Mode"}</span>
+          </button>
+          <div className="w-full h-10 bg-(--accent) text-white flex justify-center items-center rounded-md">
             <button type="button" className="h-full w-full">
               Request Plant Audit
             </button>
           </div>
         </div>
-      </div>
-      <div className="hidden w-11/12 h-20 lg:flex  justify-start items-center gap-4 ">
-        <div className="h-full w-full flex justify-between items-center ">
-          {/* logo */}
-          <div className="h-14 w-80 flex justify-start items-center gap-2 ">
-            <img src={logo} alt="IPAS Logo" className={`${theme === "dark" && "bg-white "} h-full`} />
-            <div className="font-[Serif] font-semibold text-black">
-              <p className="company font-semibold">Industrial Power &</p>
-              <p className="company font-semibold">Automation System</p>
-            </div>
-          </div>
-          {/* Navbar */}
-          <div className="h-full w-full flex justify-center items-center gap-4">
-            <div className="navlinks">
-              <p>Home</p>
-            </div>
-            <div className="navlinks">
-              <p>About us</p>
-            </div>
-            <div className="navlinks">
-              <p>Solutions & Software</p>
-            </div>
-            <div className="navlinks">
-              <p>Products & Panels</p>
-            </div>
-            <div className="navlinks">
-              <p>Industries</p>
-            </div>
-            <div className="navlinks">
-              <p>Achievements</p>
-            </div>
-            <div className="navlinks">
-              <p>Contact us</p>
-            </div>
-          </div>
-          <div className="h-full w-80 flex justify-end items-center gap-4">
-            <button type="button" className="h-10 w-48 bg-(--accent) text-white  rounded-md">
-              Request Plant Audit
-            </button>
-            <div className="h-10 w-10 flex justify-center items-center  ">
-            {theme === "light" ? (
-              <button type="button" onClick={handleToggleTheme} className="ml-4 text-center">
-                <MdDarkMode className="h-6 w-6 " />
-              </button>
-            ) : (
-              <button type="button" onClick={handleToggleTheme} className="ml-4 text-center">
-                <CiLight className="h-6 w-6 text-orange-400" />
-              </button>
-            )}
-            </div>
+      )}
+
+      <div className="hidden min-[1100px]:flex w-full max-w-7xl h-full px-3 justify-between items-center gap-3">
+        <div className="h-14 shrink-0 flex justify-start items-center gap-2">
+          <img src={logo} alt="IPAS Logo" className={logoClass} />
+          <div className="font-semibold leading-tight text-sm">
+            <p className="company font-semibold">Industrial Power &</p>
+            <p className="company font-semibold">Automation System</p>
           </div>
         </div>
+
+        <nav className="flex flex-1 min-w-0 justify-center items-center gap-3 text-sm">
+          {navItems.map((item) => (
+            <div key={item} className="navlinks whitespace-nowrap">
+              <p>{item}</p>
+            </div>
+          ))}
+        </nav>
+
+        <div className="shrink-0 flex justify-end items-center gap-2">
+          <button
+            type="button"
+            className="h-10 px-3 text-sm whitespace-nowrap bg-(--accent) text-white rounded-md"
+          >
+            Request Plant Audit
+          </button>
+          <button
+            type="button"
+            onClick={handleToggleTheme}
+            aria-label="Toggle theme"
+            className="h-10 w-10 flex justify-center items-center"
+          >
+            {theme === "light" ? (
+              <MdDarkMode className="h-6 w-6" />
+            ) : (
+              <CiLight className="h-6 w-6 text-orange-400" />
+            )}
+          </button>
+        </div>
       </div>
-    </div>
+    </header>
   );
 }
 
