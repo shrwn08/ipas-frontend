@@ -1,17 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../../assets/logo_ipas.png";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../../redux/features/themes/theme";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [theme,setTheme] = useState("light");
+  const dispatch = useDispatch();
+
+    const theme = useSelector((state) => state.theme.theme);
+
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", theme);
+        try {
+            localStorage.setItem("theme", theme);
+        } catch (error) {
+            console.error("Error saving theme to localStorage:", error);
+        }
+    }, [theme]);
 
 
-  const toggleTheme = () => {
-    setTheme((prev) => prev === "light" ? "dark" : "light");
+  const handleToggleTheme = () => {
+    dispatch(toggleTheme());
   }
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -79,7 +92,7 @@ function Header() {
         <div className="h-full w-full flex justify-between items-center ">
           {/* logo */}
           <div className="h-14 w-80 flex justify-start items-center gap-2 ">
-            <img src={logo} alt="IPAS Logo" className="h-full" />
+            <img src={logo} alt="IPAS Logo" className={`${theme === "dark" && "bg-white "} h-full`} />
             <div className="font-[Serif] font-semibold text-black">
               <p className="company font-semibold">Industrial Power &</p>
               <p className="company font-semibold">Automation System</p>
@@ -115,11 +128,11 @@ function Header() {
             </button>
             <div className="h-10 w-10 flex justify-center items-center  ">
             {theme === "light" ? (
-              <button type="button" onClick={toggleTheme} className="ml-4 text-center">
+              <button type="button" onClick={handleToggleTheme} className="ml-4 text-center">
                 <MdDarkMode className="h-6 w-6 " />
               </button>
             ) : (
-              <button type="button" onClick={toggleTheme} className="ml-4 text-center">
+              <button type="button" onClick={handleToggleTheme} className="ml-4 text-center">
                 <CiLight className="h-6 w-6 text-orange-400" />
               </button>
             )}
