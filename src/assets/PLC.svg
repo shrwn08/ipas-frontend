@@ -1,0 +1,43 @@
+<svg viewBox="0 0 1000 220" class="mill-svg" aria-label="Mill layout diagram">
+  <!-- Line path -->
+  <path d="M 60 110 H 880" stroke="var(--border)" stroke-width="2" dasharray="4 4" fill="none"/>
+
+  <!-- Equipment blocks & connections -->
+  <!-- Furnace -->
+  <rect x="50" y="90" width="60" height="40" fill="var(--surface-2)" stroke="var(--border)" rx="2"/>
+  <text x="80" y="115" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="monospace">FURNACE</text>
+
+  <!-- Stands S1 to S7 -->
+  <circle cx="150" cy="110" r="14" fill="var(--surface-2)" stroke="var(--border)"/>
+  <text x="150" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="9" font-family="monospace">S1</text>
+
+  <circle cx="200" cy="110" r="14" fill="var(--surface-2)" stroke="var(--border)"/>
+  <text x="200" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="9" font-family="monospace">S2</text>
+
+  <circle cx="250" cy="110" r="14" fill="var(--surface-2)" stroke="var(--border)"/>
+  <text x="250" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="9" font-family="monospace">S3</text>
+
+  <circle cx="300" cy="110" r="14" fill="var(--surface-2)" stroke="var(--border)"/>
+  <text x="300" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="9" font-family="monospace">S4</text>
+
+  <circle cx="350" cy="110" r="14" fill="var(--surface-2)" stroke="var(--border)"/>
+  <text x="350" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="9" font-family="monospace">S5</text>
+
+  <circle cx="400" cy="110" r="14" fill="var(--surface-2)" stroke="var(--border)"/>
+  <text x="400" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="9" font-family="monospace">S6</text>
+
+  <circle cx="450" cy="110" r="14" fill="var(--surface-2)" stroke="var(--border)"/>
+  <text x="450" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="9" font-family="monospace">S7</text>
+
+  <!-- Loop control curve -->
+  <path d="M 464 110 Q 500 150 536 110" fill="none" stroke="var(--accent)" stroke-width="2"/>
+  <text x="500" y="145" text-anchor="middle" fill="var(--text-muted)" font-size="9" font-family="monospace">LOOP</text>
+
+  <!-- Flying shear -->
+  <rect x="560" y="95" width="20" height="30" fill="var(--surface-2)" stroke="var(--border)" rx="2"/>
+  <text x="570" y="113" text-anchor="middle" fill="var(--text-muted)" font-size="8" font-family="monospace">SHEAR</text>
+
+  <!-- Cooling bed -->
+  <rect x="620" y="85" width="120" height="50" fill="var(--surface-2)" stroke="var(--border)" rx="2"/>
+  <text x="680" y="113" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="monospace">COOLING BED</text>
+</svg>

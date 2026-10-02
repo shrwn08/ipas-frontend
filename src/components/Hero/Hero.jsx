@@ -1,12 +1,29 @@
-import React from "react";
 import heroImage from "../../assets/hero.png";
+import plcVideo from "../../assets/plc-video.mp4";
 
 function Hero() {
   return (
-    <div className="hero h-full w-full pt-20 lg:pt-40 flex flex-col justify-center items-center gap-4 px-4 lg:px-20  ">
+    // CHANGED: relative isolate on root, -z-10 on the grid
+    <div className="hero relative isolate h-full w-full pt-10 lg:pt-20 flex flex-col justify-center items-center gap-4 px-4 lg:px-20">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, var(--border) 1px, transparent 1px), linear-gradient(to bottom, var(--border) 1px, transparent 1px)",
+          backgroundSize: "75px 75px",
+          maskImage:
+            "radial-gradient(ellipse at center, black 40%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, black 40%, transparent 100%)",
+        }}
+      />
+
       <div className="h-auto  w-full pb-8  flex flex-col lg:flex-row justify-center items-center gap-4 ">
         <div className="h-full w-full lg:w-2/3 flex flex-col justify-center items-center gap-4 px-4 lg:px-20 border-b border-(--border) ">
-          <h1 className="w-full lg:w-[150%] ">Automation that keeps your mill rolling</h1>
+          <h1 className="w-full lg:w-[150%] ">
+            Automation that keeps your mill rolling
+          </h1>
 
           <h3 className=" font-semibold  text-left w-full  lg:w-[150%] tracking-wide">
             PLC, SCADA and drive systems for rolling mills, steel, cement, power
@@ -23,11 +40,11 @@ function Hero() {
             </button>
             <button
               type="button"
-              className="text-(--text) px-4 py-2 rounded-md hover:bg-(--accent) hover:text-white transition-colors duration-300 ease-in-out ml-4">
-                See Mills Solutions
-              </button>
+              className="text-(--text) px-4 py-2 rounded-md hover:bg-(--accent) hover:text-white transition-colors duration-300 ease-in-out ml-4"
+            >
+              See Mills Solutions
+            </button>
           </div>
-          
         </div>
         <div className="flex justify-center items-center gap-4">
           <img
@@ -36,6 +53,9 @@ function Hero() {
             className="h-full w-full object-cover lg:[mask-image:linear-gradient(to_right,transparent_0%,black_45%)]"
           />
         </div>
+      </div>
+      <div className="w-full bg-amber-700">
+        <video src={plcVideo} controls={false} autoPlay={true} loop={true} />
       </div>
     </div>
   );
