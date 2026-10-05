@@ -1,3 +1,15 @@
+import { Link } from "react-router";
+
+const navItems = [
+  { page: "Home", path: "/" },
+  { page: "Solutions & Software", path: "/solutions-software" },
+  { page: "Products & Panels", path: "/products-panels" },
+  { page: "Industries", path: "/industries" },
+  { page: "Achievements", path: "/achievements" },
+  { page: "About us", path: "/about-us" },
+  { page: "Contact us", path: "/contact-us" },
+];
+
 function Footer() {
   return (
     <footer className="w-full border-t border-(--border)">
@@ -13,13 +25,15 @@ function Footer() {
         <div className="flex flex-col items-start gap-3">
           <h3>Explore</h3>
           <nav className="flex flex-col items-start gap-2">
-            <p>Home</p>
-            <p>About us</p>
-            <p>Solutions & Software</p>
-            <p>Products & Panels</p>
-            <p>Industries</p>
-            <p>Achievements</p>
-            <p>Contact us</p>
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className=" hover:text-(--accent-text) hover:underline transition-colors duration-200"
+              >
+                {item.page}
+              </Link>
+            ))}
           </nav>
         </div>
 
@@ -43,7 +57,6 @@ function Footer() {
         </div>
       </div>
 
-      
       <div className="border-t border-(--border) px-4 py-4">
         <p className="mx-auto max-w-7xl text-center text-sm">
           © {new Date().getFullYear()} Industrial Power & Automation System. All

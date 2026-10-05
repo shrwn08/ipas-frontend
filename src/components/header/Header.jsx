@@ -6,15 +6,41 @@ import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../redux/features/themes/theme";
+import { Link } from "react-router";
 
 const navItems = [
-  "Home",
-  "About us",
-  "Solutions & Software",
-  "Products & Panels",
-  "Industries",
-  "Achievements",
-  "Contact us",
+  {
+    page: "Solutions",
+    path: "/solutions",
+  },
+  {
+    page: "Software",
+    path: "/software",
+  },
+  {
+    page: "Products",
+    path: "/products",
+  },
+  {
+    page: "Panels",
+    path: "/panels",
+  },
+  {
+    page: "Industries",
+    path: "/industries",
+  },
+  {
+    page: "Achievements",
+    path: "/achievements",
+  },
+  {
+    page: "About us",
+    path: "/about-us",
+  },
+  {
+    page: "Contact us",
+    path: "/contact-us",
+  },
 ];
 
 function Header() {
@@ -44,17 +70,17 @@ function Header() {
   }`;
 
   return (
-    // CHANGED: full nav now starts at 1100px with tighter sizing
     <header className="relative h-16 w-full flex justify-center items-center border-b-2 border-b-(--border)">
       <div className="h-full w-full px-2 flex justify-between items-center min-[1100px]:hidden">
-        <div className="h-14 min-w-0 flex justify-start items-center gap-2">
-          <img src={logo} alt="IPAS Logo" className={logoClass} />
-          <div className="font-semibold leading-tight text-xs sm:text-base">
-            <p className="company font-semibold">Industrial Power &</p>
-            <p className="company font-semibold">Automation System</p>
+        <Link to="/" className="hover:cursor-pointer">
+          <div className="h-14 min-w-0 flex justify-start items-center gap-2">
+            <img src={logo} alt="IPAS Logo" className={logoClass} />
+            <div className="font-semibold leading-tight text-xs sm:text-base">
+              <p className="company font-semibold">Industrial Power &</p>
+              <p className="company font-semibold">Automation System</p>
+            </div>
           </div>
-        </div>
-
+        </Link>
         <button
           type="button"
           onClick={toggleMenu}
@@ -72,9 +98,11 @@ function Header() {
 
       {isMenuOpen && (
         <div className="min-[1100px]:hidden absolute top-full right-0 z-50 w-full sm:w-72 max-h-[calc(100vh-4rem)] overflow-y-auto flex flex-col items-start gap-2 px-3 py-3 border-2 border-(--border) rounded-md bg-(--card)">
-          {navItems.map((item) => (
-            <div key={item} className="w-full border-b border-(--border) pb-1">
-              <p className="text-(--text)">{item}</p>
+          {navItems.map((item, index) => (
+            <div key={index} className="w-full border-b border-(--border) pb-1">
+              <Link to={item.path} className="text-(--text)">
+                {item.page}
+              </Link>
             </div>
           ))}
           <button
@@ -98,18 +126,20 @@ function Header() {
       )}
 
       <div className="hidden min-[1100px]:flex w-full max-w-7xl h-full px-3 justify-between items-center gap-3">
-        <div className="h-14 shrink-0 flex justify-start items-center gap-2">
-          <img src={logo} alt="IPAS Logo" className={logoClass} />
-          <div className="font-semibold leading-tight text-sm">
-            <p className="company font-semibold">Industrial Power &</p>
-            <p className="company font-semibold">Automation System</p>
+        <Link to="/" className="hover:cursor-pointer">
+          <div className="h-14 shrink-0 flex justify-start items-center gap-2">
+            <img src={logo} alt="IPAS Logo" className={logoClass} />
+            <div className="font-semibold leading-tight text-sm">
+              <p className="company font-semibold">Industrial Power &</p>
+              <p className="company font-semibold">Automation System</p>
+            </div>
           </div>
-        </div>
+        </Link>
 
         <nav className="flex flex-1 min-w-0 justify-center items-center gap-3 text-sm">
-          {navItems.map((item) => (
-            <div key={item} className="navlinks whitespace-nowrap">
-              <p>{item}</p>
+          {navItems.map((item, index) => (
+            <div key={index} className="navlinks whitespace-nowrap">
+              <Link to={item.path}>{item.page}</Link>
             </div>
           ))}
         </nav>

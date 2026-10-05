@@ -53,7 +53,7 @@ function Hero() {
           />
         </div>
       </div>
-      <div className="w-full bg-amber-700">
+      <div className="w-full">
         <video src={plcVideo} controls={false} autoPlay={true} loop={true} />
       </div>
     </div>
