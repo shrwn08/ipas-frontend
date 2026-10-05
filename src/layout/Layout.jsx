@@ -5,6 +5,7 @@ import Footer from "../components/footer/Footer";
 import Home from "../pages/Home";
 import Aboutus from "../pages/Aboutus";
 import Error from "../pages/Error";
+import Solutions from "../pages/Solutions";
 
 function Layout() {
   return (
@@ -13,6 +14,7 @@ function Layout() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<Aboutus />} />
+        <Route path="/solutions" element={<Solutions />}/>
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
