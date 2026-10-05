@@ -1,7 +1,9 @@
 
 import Hero from '../components/home/Hero/Hero';
+import Milestones from '../components/home/milestones/Milestones';
 import Modernization from '../components/home/modernization/Modernization';
 import Services from '../components/home/service/Services';
+import IndustriesSection from '../components/IndustriesSection/IndustriesSection';
 
 function Home() {
   return (
@@ -9,6 +11,8 @@ function Home() {
         <Hero />
         <Services />
         <Modernization />
+        <Milestones />
+        <IndustriesSection />
     </div>
   )
 }

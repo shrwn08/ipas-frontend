@@ -1,7 +1,6 @@
 function Footer() {
   return (
-   
-    <footer className="w-full  border-t border-(--border)">
+    <footer className="w-full border-t border-(--border)">
       <div className="mx-auto w-full max-w-7xl px-4 py-8 md:px-6 md:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.5fr] gap-8">
         <div className="flex flex-col items-start gap-3">
           <h3>Industrial Power & Automation System</h3>
@@ -42,6 +41,14 @@ function Footer() {
             <p>Staff sign in</p>
           </div>
         </div>
+      </div>
+
+      
+      <div className="border-t border-(--border) px-4 py-4">
+        <p className="mx-auto max-w-7xl text-center text-sm">
+          © {new Date().getFullYear()} Industrial Power & Automation System. All
+          rights reserved.
+        </p>
       </div>
     </footer>
   );
