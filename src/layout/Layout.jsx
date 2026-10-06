@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Aboutus from "../pages/Aboutus";
 import Error from "../pages/Error";
 import Solutions from "../pages/Solutions";
+import Software from "../pages/Software";
 
 function Layout() {
   return (
@@ -15,6 +16,7 @@ function Layout() {
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<Aboutus />} />
         <Route path="/solutions" element={<Solutions />}/>
+        <Route path="/software" element={<Software />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
