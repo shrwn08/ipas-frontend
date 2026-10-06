@@ -66,9 +66,7 @@ function MillFunctions() {
           <div
             role="tablist"
             aria-label="Mill automation functions"
-            className="flex md:flex-
-            
-             gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0"
+            className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0"
           >
             {functions.map(({ title }, index) => {
               const isActive = index === active;
