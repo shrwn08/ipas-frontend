@@ -1,15 +1,39 @@
 import { Link } from "react-router";
 
 const navItems = [
-  { page: "Home", path: "/" },
-  { page: "Solutions & Software", path: "/solutions-software" },
-  { page: "Products & Panels", path: "/products-panels" },
-  { page: "Industries", path: "/industries" },
-  { page: "Achievements", path: "/achievements" },
-  { page: "About us", path: "/about-us" },
-  { page: "Contact us", path: "/contact-us" },
+  {
+    page: "Solutions",
+    path: "/solutions",
+  },
+  {
+    page: "Software",
+    path: "/software",
+  },
+  {
+    page: "Products",
+    path: "/products",
+  },
+  {
+    page: "Panels",
+    path: "/panels",
+  },
+  {
+    page: "Industries",
+    path: "/industries",
+  },
+  {
+    page: "Achievements",
+    path: "/achievements",
+  },
+  {
+    page: "About us",
+    path: "/about-us",
+  },
+  {
+    page: "Contact us",
+    path: "/contact-us",
+  },
 ];
-
 function Footer() {
   return (
     <footer className="w-full border-t border-(--border)">
@@ -40,8 +64,23 @@ function Footer() {
         <div className="flex flex-col items-start gap-3">
           <h3>Reach us</h3>
           <div className="flex flex-col items-start gap-2">
-            <p>+91 98290 12345</p>
-            <p className="break-all">info@company.com</p>
+            <a href="tel:+917982903925" className="hover:underline">
+              +91 79829 03925
+            </a>
+            <a
+              href="mailto:info@ipasautomation.com"
+              className="break-all hover:underline"
+            >
+              info@ipasautomation.com
+            </a>
+            <a
+              href="https://www.linkedin.com/company/your-company-page"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
 
