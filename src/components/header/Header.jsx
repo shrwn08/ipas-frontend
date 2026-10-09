@@ -18,12 +18,8 @@ const navItems = [
     path: "/software",
   },
   {
-    page: "Products",
-    path: "/products",
-  },
-  {
-    page: "Panels",
-    path: "/panels",
+    page: "Products & Panels",
+    path: "/products&panels",
   },
   {
     page: "Industries",
