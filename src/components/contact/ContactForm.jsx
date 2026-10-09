@@ -1,7 +1,7 @@
 
 
 
-const phones = ["+91-9331888808", "+91-9599842649"];
+const phones = ["+91-9331888808", "+91-9599842649", "+91-7982903925"];
 const emails = ["info@ipasautomation.com", "Ipas2026@gmail.com"];
 const needs = [
   "Mill automation",

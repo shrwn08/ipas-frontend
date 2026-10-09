@@ -1,8 +1,12 @@
+import AboutHero from "../components/about-us/aboutHero"
+
 
 
 function Aboutus() {
   return (
-    <div>Aboutus</div>
+    <div className="w-full">
+        <AboutHero />
+    </div>
   )
 }
 
