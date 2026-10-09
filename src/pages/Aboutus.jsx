@@ -1,5 +1,6 @@
 import AboutHero from "../components/about-us/aboutHero"
 import TurnkeyDelivery from "../components/about-us/TurnkeyDelivery"
+import VisionNmission from "../components/about-us/VisionNmission"
 
 
 
@@ -8,6 +9,7 @@ function Aboutus() {
     <div className="w-full">
         <AboutHero />
         <TurnkeyDelivery />
+        <VisionNmission />
     </div>
   )
 }
