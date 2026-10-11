@@ -2,6 +2,7 @@ import AboutHero from "../components/about-us/aboutHero"
 import EngineeringTeam from "../components/about-us/EngineeringTeam"
 import TurnkeyDelivery from "../components/about-us/TurnkeyDelivery"
 import VisionNmission from "../components/about-us/VisionNmission"
+import WhyUs from "../components/about-us/WhyUs"
 
 
 
@@ -12,6 +13,7 @@ function Aboutus() {
         <TurnkeyDelivery />
         <VisionNmission />
         <EngineeringTeam />
+        <WhyUs />
     </div>
   )
 }
