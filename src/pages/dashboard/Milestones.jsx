@@ -410,7 +410,7 @@ function Milestones() {
           )}
 
           {visible.length === 0 ? (
-            <p className="py-6 text-center !text-(--text) font-medium">
+            <p className="py-6 text-center text-(--text)! font-medium">
               No milestones here yet.
             </p>
           ) : (
