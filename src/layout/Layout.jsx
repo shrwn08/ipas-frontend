@@ -10,6 +10,7 @@ import Software from "../pages/Software";
 import Contact from "../pages/Contact";
 import Industries from "../pages/industries";
 import DashboardLayout from "../pages/DashboardLayout";
+import Overview from "../pages/dashboard/Overview";
 
 function Layout() {
   return (
@@ -25,7 +26,9 @@ function Layout() {
 
 
         {/*Dashboard*/}
-        <Route path="/dashboard" element={<DashboardLayout />} />
+        <Route path="/dashboard" element={<DashboardLayout />} >
+          <Route path="/overview" element={<Overview />}/>
+        </Route>
 
 
         <Route path="*" element={<Error />} />
