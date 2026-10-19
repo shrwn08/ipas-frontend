@@ -9,7 +9,7 @@ import Solutions from "../pages/Solutions";
 import Software from "../pages/Software";
 import Contact from "../pages/Contact";
 import Industries from "../pages/industries";
-import Dashboard from "../pages/Dashboard";
+import DashboardLayout from "../pages/DashboardLayout";
 
 function Layout() {
   return (
@@ -25,7 +25,7 @@ function Layout() {
 
 
         {/*Dashboard*/}
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<DashboardLayout />} />
 
 
         <Route path="*" element={<Error />} />
