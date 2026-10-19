@@ -8,6 +8,8 @@ import Error from "../pages/Error";
 import Solutions from "../pages/Solutions";
 import Software from "../pages/Software";
 import Contact from "../pages/Contact";
+import Industries from "../pages/industries";
+import Dashboard from "../pages/Dashboard";
 
 function Layout() {
   return (
@@ -19,6 +21,13 @@ function Layout() {
         <Route path="/solutions" element={<Solutions />}/>
         <Route path="/software" element={<Software />} />
         <Route path="/contact-us" element={<Contact />} />
+        <Route path="/industries" element={<Industries />} />
+
+
+        {/*Dashboard*/}
+        <Route path="/dashboard" element={<Dashboard />} />
+
+
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
