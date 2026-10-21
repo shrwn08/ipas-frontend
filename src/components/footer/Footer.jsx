@@ -87,7 +87,7 @@ function Footer() {
               Plot No-659, Badoli, Sector-80, Opposite Gov. High School,
               Faridabad-121004, Haryana, India
             </p>
-            <Link to="/dashboard">Staff sign in</Link>
+            <Link to="/login">Staff sign in</Link>
           </div>
         </div>
       </div>

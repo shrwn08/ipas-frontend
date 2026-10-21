@@ -17,6 +17,7 @@ import Milestones from "../pages/dashboard/Milestones";
 import DashboardIndustries from "../pages/dashboard/DashboardIndustries";
 import Admins from "../pages/dashboard/Admins";
 import Settings from "../pages/dashboard/Settings";
+import Login from "../pages/dashboard/Login";
 
 function MainLayout() {
   return (
@@ -49,6 +50,7 @@ function Layout() {
         <Route path="/software" element={<Software />} />
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/industries" element={<Industries />} />
+        <Route path="/login" element={<Login />} />
       </Route>
 
       <Route path="/dashboard" element={<DashboardLayout />}>
