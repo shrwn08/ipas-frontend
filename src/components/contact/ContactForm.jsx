@@ -1,7 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 
-
-
-const phones = ["+91-9331888808", "+91-9599842649", "+91-7982903925"];
+const phones = ["+91-9599842649", "+91-7982903925"];
 const emails = ["info@ipasautomation.com", "Ipas2026@gmail.com"];
 const needs = [
   "Mill automation",
@@ -18,6 +17,61 @@ const inputClass =
 const copyClass =
   "shrink-0 px-2 py-0.5 text-xs rounded-md border border-(--border) text-(--text) hover:border-(--accent-text) hover:text-(--accent-text) transition-colors duration-200";
 
+//  browsers and non-secure pages have no navigator.clipboard,
+// so fall back to a hidden textarea and execCommand.
+async function copyText(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch {
+    // fall through to the fallback below
+  }
+
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    return ok;
+  } catch {
+    return false;
+  }
+}
+
+function CopyButton({ value, label }) {
+  const [status, setStatus] = useState("idle"); // idle | copied | failed
+  const timer = useRef(null);
+
+  useEffect(() => () => clearTimeout(timer.current), []);
+
+  async function handleCopy() {
+    const ok = await copyText(value);
+    setStatus(ok ? "copied" : "failed");
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => setStatus("idle"), 1800);
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={handleCopy}
+      aria-label={`Copy ${label}`}
+      className={`${copyClass} ${status === "copied" ? "border-(--accent-text) text-(--accent-text)" : ""}`}
+    >
+      <span aria-live="polite">
+        {status === "copied" ? "Copied" : status === "failed" ? "Press Ctrl+C" : "Copy"}
+      </span>
+    </button>
+  );
+}
+
 function ContactForm() {
   return (
     <section className="w-full py-8 md:py-12">
@@ -28,9 +82,7 @@ function ContactForm() {
             {phones.map((phone) => (
               <div key={phone} className="flex flex-wrap items-center gap-3">
                 <a href={`tel:${phone.replace(/-/g, "")}`}>{phone}</a>
-                <button type="button" className={copyClass}>
-                  Copy
-                </button>
+                <CopyButton value={phone} label={`phone number ${phone}`} />
               </div>
             ))}
           </div>
@@ -42,9 +94,7 @@ function ContactForm() {
                 <a href={`mailto:${email}`} className="break-all">
                   {email}
                 </a>
-                <button type="button" className={copyClass}>
-                  Copy
-                </button>
+                <CopyButton value={email} label={`email ${email}`} />
               </div>
             ))}
           </div>
@@ -130,4 +180,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm
+export default ContactForm;
