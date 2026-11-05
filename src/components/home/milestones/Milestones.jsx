@@ -34,7 +34,7 @@ function MilestoneCard({ category, date, title, description, image }) {
   return (
     <article
       className={`flex flex-col overflow-hidden rounded-md border border-(--border) bg-(--card) ${
-        expanded ? "h-auto" : "h-[28rem]"
+        expanded ? "h-auto" : "h-112"
       }`}
     >
       {image ? (
@@ -74,7 +74,7 @@ function MilestoneCard({ category, date, title, description, image }) {
 function Milestones() {
   return (
     <section className="w-full flex flex-col items-center py-8">
-      {/* CHANGED: removed max-w-7xl to match Modernization width */}
+      {/*  removed max-w-7xl to match Modernization width */}
       <div className="w-full flex flex-col gap-6 px-4 lg:px-20">
         <div className="flex flex-col gap-2">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-left">

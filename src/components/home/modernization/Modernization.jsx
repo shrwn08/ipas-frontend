@@ -1,7 +1,7 @@
 import modernization from "../../../assets/modernization.png";
 
 function Modernization() {
-  // CHANGED: same max-w-7xl wrapper as the other sections
+  //  same max-w-7xl wrapper as the other sections
   return (
     <section className="w-full py-6 md:py-10">
       <div className="w-full max-w-7xl mx-auto px-4 lg:px-20 grid grid-cols-1 md:grid-cols-2 items-center gap-6 md:gap-8">
