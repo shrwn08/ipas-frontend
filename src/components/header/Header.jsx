@@ -7,6 +7,7 @@ import { MdDarkMode } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../redux/features/themes/theme";
 import { Link } from "react-router";
+import Logo from "../logo/Logo";
 
 const navItems = [
   {
@@ -69,13 +70,7 @@ function Header() {
     <header className="relative h-16 w-full flex justify-center items-center border-b-2 border-b-(--border)">
       <div className="h-full w-full px-2 flex justify-between items-center min-[1100px]:hidden">
         <Link to="/" className="hover:cursor-pointer">
-          <div className="h-14 min-w-0 flex justify-start items-center gap-2">
-            <img src={logo} alt="IPAS Logo" className={logoClass} />
-            <div className="font-semibold leading-tight text-xs sm:text-base">
-              <p className="company font-semibold">Industrial Power &</p>
-              <p className="company font-semibold">Automation System</p>
-            </div>
-          </div>
+          <Logo />
         </Link>
         <button
           type="button"
@@ -123,13 +118,7 @@ function Header() {
 
       <div className="hidden min-[1100px]:flex w-full max-w-7xl h-full px-3 justify-between items-center gap-3">
         <Link to="/" className="hover:cursor-pointer">
-          <div className="h-14 shrink-0 flex justify-start items-center gap-2">
-            <img src={logo} alt="IPAS Logo" className={logoClass} />
-            <div className="font-semibold leading-tight text-sm">
-              <p className="company font-semibold">Industrial Power &</p>
-              <p className="company font-semibold">Automation System</p>
-            </div>
-          </div>
+          <Logo />
         </Link>
 
         <nav className="flex flex-1 min-w-0 justify-center items-center gap-3 text-sm">

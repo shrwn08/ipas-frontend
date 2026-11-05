@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import Logo from "../logo/Logo";
 
 const navItems = [
   {
@@ -34,13 +35,7 @@ function Footer() {
   return (
     <footer className="w-full border-t border-(--border)">
       <div className="mx-auto w-full max-w-7xl px-4 py-8 md:px-6 md:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.5fr] gap-8">
-        <div className="flex flex-col items-start gap-3">
-          <h3>Industrial Power & Automation System</h3>
-          <p>
-            Industrial automation, PLC, SCADA, drive systems, electrical panels
-            and Industry 4.0 solutions.
-          </p>
-        </div>
+       <Logo />
 
         <div className="flex flex-col items-start gap-3">
           <h3>Explore</h3>

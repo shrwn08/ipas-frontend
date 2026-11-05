@@ -1,4 +1,4 @@
-const aboutImage = null;
+import aboutImage from "../../assets/About-hero.png"
 
 function AboutHero() {
   return (

@@ -1,12 +1,27 @@
 import { useState } from "react";
+import Cooling_bed from "../../assets/cooling bed.jpeg"
+import Furnace from "../../assets/Furnace Automation.png"
+import TMTBox from "../../assets/Tmt box.png"
+import HMD from "../../assets/HMD.png"
+import HotSaw from "../../assets/hot Saw.png"
+import flyingShear from "../../assets/Flyongshear.png"
+import coldShear from "../../assets/Cold shear.png"
+import SCAMI from "../../assets/SCADA&HMI.png"
+import remote from "../../assets/Remote.png"
+import report from "../../assets/report.jpg"
+import DcDrive from "../../assets/DCDRive.png"
+import tensionController from "../../assets/tensionControl.png"
+import cascade from "../../assets/cascade.png"
+import loopController from "../../assets/loop-control.png"
+import autoBundling from "../../assets/auto-bundling.png"
 
 const functions = [
   {
     title: "Heating and tracking",
     description: "Know where every billet is.",
     items: [
-      { name: "Furnace automation", image: null },
-      { name: "Material tracking", image: null },
+      { name: "Furnace automation", image: Furnace },
+      { name: "Material tracking", image: HMD },
     ],
   },
   {
@@ -14,28 +29,28 @@ const functions = [
     description:
       "Keep the bar in tension between stands without pulling or looping it.",
     items: [
-      { name: "Minimum tension control", image: null },
-      { name: "Stand speed cascade", image: null },
-      { name: "Loop control", image: null },
-      { name: "AC/DC drive synchronization", image: null },
+      { name: "Minimum tension control", image: tensionController},
+      { name: "Stand speed cascade", image: cascade },
+      { name: "Loop control", image: loopController },
+      { name: "AC/DC drive synchronization", image: DcDrive },
     ],
   },
   {
     title: "Cutting",
     description: "Cut lengths follow the real bar speed.",
     items: [
-      { name: "Flying shear synchronization", image: null },
-      { name: "Hot saw", image: null },
-      { name: "Cold shear", image: null },
+      { name: "Flying shear synchronization", image: flyingShear },
+      { name: "Hot saw", image: HotSaw },
+      { name: "Cold shear", image: coldShear },
     ],
   },
   {
     title: "Cooling and finishing",
     description: "Quench, cool, count and bundle.",
     items: [
-      { name: "TMT quenching, water box", image: null },
-      { name: "Cooling bed", image: null },
-      { name: "Bundling and counting", image: null },
+      { name: "TMT quenching, water box", image: TMTBox },
+      { name: "Cooling bed", image: Cooling_bed },
+      { name: "Bundling and counting", image: autoBundling },
     ],
   },
   {
@@ -43,10 +58,10 @@ const functions = [
     description: "Control on the floor and data above it.",
     items: [
       { name: "Level-1 and Level-2 automation", image: null },
-      { name: "SCADA and HMI", image: null },
+      { name: "SCADA and HMI", image: SCAMI},
       { name: "Energy monitoring", image: null },
-      { name: "Production and quality reporting", image: null },
-      { name: "Remote monitoring and IIoT", image: null },
+      { name: "Production and quality reporting", image: report },
+      { name: "Remote monitoring and IIoT", image: remote },
     ],
   },
 ];

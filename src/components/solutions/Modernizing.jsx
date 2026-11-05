@@ -1,4 +1,12 @@
-const modernizingImage = null;
+import s7300Image from "../../assets/S7_300.png";
+import s7400Image from "../../assets/S7_400.png"
+
+const images = [
+  { label: "Siemens S7-300", src: s7300Image },
+  { label: "Siemens S7-400", src: s7400Image },
+];
+
+const imageHeight = "h-52 sm:h-72 md:h-64 xl:h-96";
 
 function Modernizing() {
   return (
@@ -25,20 +33,30 @@ function Modernizing() {
           </ul>
         </div>
 
-        <div className="w-full">
-          {modernizingImage ? (
-            <img
-              src={modernizingImage}
-              alt="Siemens S7-300 and S7-400 modernization"
-              className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded-md"
-            />
-          ) : (
-            <div
-              role="img"
-              aria-label="Siemens S7-300 and S7-400 modernization"
-              className="w-full h-48 sm:h-64 lg:h-80 rounded-md border border-(--border) bg-(--card)"
-            />
-          )}
+        <div className="w-full grid grid-cols-2 md:grid-cols-1 xl:grid-cols-2 gap-4">
+          {images.map(({ label, src }) => (
+            <figure
+              key={label}
+              className="flex flex-col overflow-hidden rounded-md border border-(--border) bg-(--card)"
+            >
+              {src ? (
+                <img
+                  src={src}
+                  alt={label}
+                  className={`w-full ${imageHeight} object-cover`}
+                />
+              ) : (
+                <div
+                  role="img"
+                  aria-label={label}
+                  className={`w-full ${imageHeight} bg-(--bg-alt)`}
+                />
+              )}
+              <figcaption className="px-3 py-2 text-center text-sm font-medium text-(--text) border-t border-(--border)">
+                {label}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>

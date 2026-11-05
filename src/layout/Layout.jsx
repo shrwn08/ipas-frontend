@@ -18,6 +18,8 @@ import DashboardIndustries from "../pages/dashboard/DashboardIndustries";
 import Admins from "../pages/dashboard/Admins";
 import Settings from "../pages/dashboard/Settings";
 import Login from "../pages/dashboard/Login";
+import ProductsNpanels from "../pages/ProductsNpanels";
+import Achievements from "../pages/Achievements";
 
 function MainLayout() {
   return (
@@ -50,6 +52,8 @@ function Layout() {
         <Route path="/software" element={<Software />} />
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/industries" element={<Industries />} />
+        <Route path="products&panels" element = {<ProductsNpanels />} />
+        <Route path="/achievements" element={<Achievements/>} />
         <Route path="/login" element={<Login />} />
       </Route>
 
