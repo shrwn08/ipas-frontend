@@ -1,4 +1,4 @@
-import AboutHero from "../components/about-us/aboutHero"
+import AboutHero from "../components/about-us/AboutHero"
 import EngineeringTeam from "../components/about-us/EngineeringTeam"
 import OfficeLocation from "../components/about-us/OfficeLocation"
 import TurnkeyDelivery from "../components/about-us/TurnkeyDelivery"
