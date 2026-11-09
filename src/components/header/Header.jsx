@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import logo from "../../assets/logo_ipas.png";
 import { IoMenu } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { CiLight } from "react-icons/ci";

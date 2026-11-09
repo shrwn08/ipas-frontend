@@ -15,12 +15,22 @@ const SECTORS = {
   },
   foundry: { name: "Foundry", blurb: "A foundry reference outside India." },
   cement: { name: "Cement", blurb: "A cement plant in the Dhanbad region." },
-  power: { name: "Power generation", blurb: "A power generation unit in Odisha." },
+  power: {
+    name: "Power generation",
+    blurb: "A power generation unit in Odisha.",
+  },
 };
 
 // [company, location, state/country, isIndia, sector, tag]
 const RAW = [
-  ["Gagan Resources Pvt Ltd", "Siltara Industrial Area, Sondra", "Chhattisgarh", true, "steel", ""],
+  [
+    "Gagan Resources Pvt Ltd",
+    "Siltara Industrial Area, Sondra",
+    "Chhattisgarh",
+    true,
+    "steel",
+    "",
+  ],
   ["Mascom Steel Pvt Ltd", "Edathala, Aluva", "Kerala", true, "steel", ""],
   ["Rabigh Solb Factory Company", "Rabigh", "Saudi Arabia", false, "steel", ""],
   ["Seashore Steel WLL", "New Industrial Area 11", "Qatar", false, "steel", ""],
@@ -33,12 +43,47 @@ const RAW = [
   ["African Foundry", "Nigeria", "Nigeria", false, "foundry", ""],
   ["Shri Khatu Cement", "Dhanbad", "Jharkhand", true, "cement", ""],
   ["Jay TMT", "Dhanbad", "Jharkhand", true, "steel", ""],
-  ["Nirman Infra Steel Pvt Ltd", "Bagru, Jaipur", "Rajasthan", true, "steel", ""],
-  ["Premier Bar Steel Pvt Ltd", "Bagru, Jaipur", "Rajasthan", true, "steel", ""],
-  ["Shambhawi Ispat Pvt Ltd", "Gerwani, Raigarh", "Chhattisgarh", true, "steel", "Service"],
-  ["SMC Power Generation Ltd, Unit 2", "Kukurjangha", "Odisha", true, "power", ""],
+  [
+    "Nirman Infra Steel Pvt Ltd",
+    "Bagru, Jaipur",
+    "Rajasthan",
+    true,
+    "steel",
+    "",
+  ],
+  [
+    "Premier Bar Steel Pvt Ltd",
+    "Bagru, Jaipur",
+    "Rajasthan",
+    true,
+    "steel",
+    "",
+  ],
+  [
+    "Shambhawi Ispat Pvt Ltd",
+    "Gerwani, Raigarh",
+    "Chhattisgarh",
+    true,
+    "steel",
+    "Service",
+  ],
+  [
+    "SMC Power Generation Ltd, Unit 2",
+    "Kukurjangha",
+    "Odisha",
+    true,
+    "power",
+    "",
+  ],
   ["Purliya Ispat Pvt Ltd", "Asansol", "West Bengal", true, "steel", ""],
-  ["Nirman TMT Steel Pvt Ltd", "RIICO Bagru, Jaipur", "Rajasthan", true, "steel", ""],
+  [
+    "Nirman TMT Steel Pvt Ltd",
+    "RIICO Bagru, Jaipur",
+    "Rajasthan",
+    true,
+    "steel",
+    "",
+  ],
 ];
 
 const DATA = RAW.map(([name, loc, reg, india, sec, tag], i) => ({
@@ -57,8 +102,10 @@ const GRID_BG = {
   backgroundImage:
     "linear-gradient(color-mix(in srgb, var(--text) 8%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--text) 8%, transparent) 1px, transparent 1px)",
   backgroundSize: "40px 40px",
-  WebkitMaskImage: "radial-gradient(ellipse 60% 75% at 30% 40%, #000 20%, transparent 75%)",
-  maskImage: "radial-gradient(ellipse 60% 75% at 30% 40%, #000 20%, transparent 75%)",
+  WebkitMaskImage:
+    "radial-gradient(ellipse 60% 75% at 30% 40%, #000 20%, transparent 75%)",
+  maskImage:
+    "radial-gradient(ellipse 60% 75% at 30% 40%, #000 20%, transparent 75%)",
 };
 
 // Headings use "!" because your global h1/h2/h3 rules are unlayered and
@@ -107,15 +154,19 @@ export default function Industries() {
     <main className="bg-page text-ink">
       {/* Hero */}
       <section className={`relative isolate pt-16 ${SECTION}`}>
-        <div className="pointer-events-none absolute inset-0 -z-10" style={GRID_BG} />
+        <div
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={GRID_BG}
+        />
         <div className={INNER}>
           <div className="eyebrow">Industries we work with</div>
           <h1 className="mt-4 max-w-[18ch] text-4xl! text-balance md:text-6xl!">
             Steel, foundry, cement and power plants, in India and abroad
           </h1>
           <p className="mt-5 max-w-[62ch] text-base">
-            Steel and TMT plants make up most of our reference list. We also work with a foundry,
-            a cement plant and a power station. Every site below is a plant we have worked with.
+            Steel and TMT plants make up most of our reference list. We also
+            work with a foundry, a cement plant and a power station. Every site
+            below is a plant we have worked with.
           </p>
 
           <div className="mt-10 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-4">
@@ -136,7 +187,9 @@ export default function Industries() {
         <div className={INNER}>
           <div className="mb-8 grid max-w-[70ch] gap-3">
             <div className="eyebrow">Sectors</div>
-            <h2 className="text-2xl! md:text-4xl!">Where our references sit, by sector</h2>
+            <h2 className="text-2xl! md:text-4xl!">
+              Where our references sit, by sector
+            </h2>
           </div>
 
           <div className="grid gap-5 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
@@ -185,7 +238,9 @@ export default function Industries() {
         <div className={INNER}>
           <div className="mb-8 grid max-w-[70ch] gap-3">
             <div className="eyebrow">Locations</div>
-            <h2 className="text-2xl! md:text-4xl!">Jharkhand and Chhattisgarh hold the most sites</h2>
+            <h2 className="text-2xl! md:text-4xl!">
+              Jharkhand and Chhattisgarh hold the most sites
+            </h2>
             <p>Number of reference plants by Indian state or country.</p>
           </div>
 
@@ -200,7 +255,10 @@ export default function Industries() {
                 </span>
                 <div
                   className="h-3.5 overflow-hidden rounded-xs border"
-                  style={{ borderColor: "var(--border)", background: "var(--card)" }}
+                  style={{
+                    borderColor: "var(--border)",
+                    background: "var(--card)",
+                  }}
                 >
                   <div
                     className="h-full"
@@ -210,7 +268,9 @@ export default function Industries() {
                     }}
                   />
                 </div>
-                <span className="text-right font-mono text-sm font-bold tabular-nums">{r.n}</span>
+                <span className="text-right font-mono text-sm font-bold tabular-nums">
+                  {r.n}
+                </span>
               </div>
             ))}
           </div>
@@ -242,10 +302,16 @@ export default function Industries() {
         <div className={INNER}>
           <div className="mb-8 grid max-w-[70ch] gap-3">
             <div className="eyebrow">Reference list</div>
-            <h2 className="text-2xl! md:text-4xl!">All {DATA.length} reference sites</h2>
+            <h2 className="text-2xl! md:text-4xl!">
+              All {DATA.length} reference sites
+            </h2>
           </div>
 
-          <div className="mb-4 flex flex-wrap gap-2" role="group" aria-label="Filter by sector">
+          <div
+            className="mb-4 flex flex-wrap gap-2"
+            role="group"
+            aria-label="Filter by sector"
+          >
             {filterOptions.map(([key, label]) => (
               <button
                 type="button"
@@ -263,8 +329,17 @@ export default function Industries() {
             <table className="w-full min-w-[720px] border-collapse text-left">
               <thead>
                 <tr className="border-b border-line">
-                  {["#", "Company", "Location", "State / country", "Sector"].map((h) => (
-                    <th key={h} className="whitespace-nowrap px-4 py-3.5 font-bold">
+                  {[
+                    "#",
+                    "Company",
+                    "Location",
+                    "State / country",
+                    "Sector",
+                  ].map((h) => (
+                    <th
+                      key={h}
+                      className="whitespace-nowrap px-4 py-3.5 font-bold"
+                    >
                       {h}
                     </th>
                   ))}
@@ -272,7 +347,10 @@ export default function Industries() {
               </thead>
               <tbody>
                 {rows.map((d) => (
-                  <tr key={d.id} className="border-b border-line last:border-b-0">
+                  <tr
+                    key={d.id}
+                    className="border-b border-line last:border-b-0"
+                  >
                     <td className="w-12 px-4 py-3.5 align-top font-mono text-xs text-muted tabular-nums">
                       {String(d.id).padStart(2, "0")}
                     </td>
@@ -284,8 +362,12 @@ export default function Industries() {
                         </span>
                       )}
                     </td>
-                    <td className="px-4 py-3.5 align-top text-sm text-muted">{d.loc}</td>
-                    <td className="px-4 py-3.5 align-top text-sm text-muted">{d.reg}</td>
+                    <td className="px-4 py-3.5 align-top text-sm text-muted">
+                      {d.loc}
+                    </td>
+                    <td className="px-4 py-3.5 align-top text-sm text-muted">
+                      {d.reg}
+                    </td>
                     <td className="px-4 py-3.5 align-top">
                       <span className="whitespace-nowrap rounded-sm border border-line px-2 py-0.5 font-mono text-[11px] uppercase tracking-widest">
                         {SECTORS[d.sec].name}
